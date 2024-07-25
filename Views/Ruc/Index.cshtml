@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Consulta de RUC";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container text-center mb-4">
+            <img src="~/images/sunat.png" alt="SUNAT" width="100" height="40">
+        </div>
+        <h1>Consulta de RUC</h1>
+        <form asp-action="Consultar" method="post" class="ruc-form">
+            <div class="form-group">
+                <label for="ruc">RUC</label>
+                <input type="text" class="form-control" id="ruc" name="ruc" required pattern="\d{11}" title="El RUC debe tener 11 dígitos" />
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </form>
+    </div>
+</body>
+</html>

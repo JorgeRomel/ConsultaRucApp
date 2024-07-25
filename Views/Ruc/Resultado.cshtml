@@ -1,0 +1,108 @@
+@model RucConsultaApp.Models.RucResponse
+
+@{
+    ViewData["Title"] = "Resultado de la Consulta";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style.css">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Resultado de la Consulta</h1>
+
+        @if (Model.Success)
+        {
+            <div class="tables-wrapper">
+                <div class="table-container">
+                    <h2>Información General</h2>
+                    <table>
+                        <tr>
+                            <th>RUC</th>
+                            <td>@Model.Ruc</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre o Razón Social</th>
+                            <td>@Model.NombreORazonSocial</td>
+                        </tr>
+                        <tr>
+                            <th>Estado del Contribuyente</th>
+                            <td>@Model.EstadoDelContribuyente</td>
+                        </tr>
+                        <tr>
+                            <th>Condición de Domicilio</th>
+                            <td>@Model.CondicionDeDomicilio</td>
+                        </tr>
+                        <tr>
+                            <th>Última Actualización</th>
+                            <td>@Model.UltimaActualizacion</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <h2>Dirección</h2>
+                    <table>
+                        <tr>
+                            <th>Dirección Completa</th>
+                            <td>@Model.Direccion</td>
+                        </tr>
+                        <tr>
+                            <th>Ubigeo</th>
+                            <td>@Model.Ubigeo</td>
+                        </tr>
+                        <tr>
+                            <th>Departamento</th>
+                            <td>@Model.Departamento</td>
+                        </tr>
+                        <tr>
+                            <th>Provincia</th>
+                            <td>@Model.Provincia</td>
+                        </tr>
+                        <tr>
+                            <th>Distrito</th>
+                            <td>@Model.Distrito</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="center-table">
+                <div>
+                    <h2>Detalles de Dirección</h2>
+                    <table>
+                        <tr>
+                            <th>Tipo de Vía</th>
+                            <td>@Model.TipoDeVia</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre de Vía</th>
+                            <td>@Model.NombreDeVia</td>
+                        </tr>
+                        <tr>
+                            <th>Código de Zona</th>
+                            <td>@Model.CodigoDeZona</td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de Zona</th>
+                            <td>@Model.TipoDeZona</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p class="text-danger">No se encontró información para el RUC proporcionado.</p>
+        }
+
+        <a href="@Url.Action("Index", "Ruc")" class="btn mt-3">Nueva Consulta</a>
+    </div>
+</body>
+</html>
